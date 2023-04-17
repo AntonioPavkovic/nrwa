@@ -1,76 +1,38 @@
 <?php
 
+    Route::get('index.php', function () {
+        IndexController::CreateView('IndexView');
+    });
 
-class Route
-{
-    public static $validRoutes = array();
-    public static function get($route, $function)
-    {
-        if($_SERVER['REQUEST_METHOD'] == 'GET'){
-            self::$validRoutes[] = $route;
-            if (isset($_GET['url'])) {
-                if ($_GET['url'] == $route) {
-                    if (is_array($function)) {
-                        $controller = new $function[0]();
-                        $func = $function[1];
-                        $controller->$func($_GET);
-                    } else {
-                        $function->__invoke($_GET);
-                    }
-                }
-            }
-        }
-    }
+    Route::get('jobs',[JobController::class, 'index']);
+    Route::get('jobs_create',[JobController::class, 'create']);
+    Route::get('jobs_edit',[JobController::class, 'edit']);
 
-    public static function post($route, $function)
-    {
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (isset($_GET['url'])) {
-                if ($_GET['url'] == $route) {
-                    if (is_array($function)) {
-                        $controller = new $function[0]();
-                        $func = $function[1];
-                        $controller->$func($_POST);
-                    } else {
-                        $function->__invoke($_POST);
-                    }
-                }
-            }
-        }
-    }
+    Route::post('jobs',[JobController::class, 'store']);
 
-    public static function put($route, $function)
-    {
-        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['_method']) && $_POST['_method'] == 'PUT') {
-            if (isset($_GET['url'])) {
-                if ($_GET['url'] == $route) {
-                    if (is_array($function)) {
-                        $controller = new $function[0]();
-                        $func = $function[1];
-                        $controller->$func($_POST);
-                    } else {
-                        $function->__invoke($_POST);
-                    }
-                }
-            }
-        }
-    }
-    public static function delete($route, $function)
-    {
-        if($_SERVER['REQUEST_METHOD'] == 'POST'&& isset($_POST['_method']) && $_POST['_method'] == 'DELETE') {
-            if (isset($_GET['url'])) {
-                if ($_GET['url'] == $route) {
-                    if (is_array($function)) {
-                        $controller = new $function[0]();
-                        $func = $function[1];
-                        $controller->$func($_POST);
-                    } else {
-                        $function->__invoke($_POST);
-                    }
-                }
-            }
-        }
-    }
+    Route::put('jobs_update',[JobController::class, 'update']);
+
+    Route::delete('jobs_delete',[JobController::class, 'delete']);
+
+    Route::get('countries',[CountryController::class, 'index']);
+    Route::get('countries_create',[CountryController::class, 'create']);
+    Route::get('countries_edit',[CountryController::class, 'edit']);
+
+    Route::post('countries',[CountryController::class, 'store']);
+
+    Route::put('countries_update',[CountryController::class, 'update']);
+
+    Route::delete('countries_delete',[CountryController::class, 'delete']);
+
+    Route::get('regions',[RegionController::class, 'index']);
+    Route::get('regions_create',[RegionController::class, 'create']);
+    Route::get('regions_edit',[RegionController::class, 'edit']);
+
+    Route::post('regions',[RegionController::class, 'store']);
+
+    Route::put('regions_update',[RegionController::class, 'update']);
+
+    Route::delete('regions_delete',[RegionController::class, 'delete']);
 
 
-}
+

@@ -5,12 +5,12 @@
     <style>
         <?php include 'index.css'; ?>
     </style>
-    <title>MVC HR Schema</title>
+    <title>Zadaća1.1 MVC</title>
 </head>
 <body style="font-family:Verdana;color:#aaaaaa;">
 
 <div class="header">
-    <h1>HR Schema</h1>
+    <h1>Sustav za HR</h1>
 </div>
 
 <div class="menu">
