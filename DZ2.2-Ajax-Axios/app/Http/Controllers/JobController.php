@@ -59,4 +59,13 @@ class JobController extends Controller
         return redirect()->route('jobs.index')
                         ->with('success','Job deleted successfully');
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $jobs = Job::where('job_title', 'LIKE', "%$query%")->get();
+
+        return view('jobs.job_list')->with('jobs', $jobs)->render();
+    }
+    
 }
