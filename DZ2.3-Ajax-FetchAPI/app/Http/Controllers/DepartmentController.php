@@ -101,4 +101,14 @@ class DepartmentController extends Controller
         return redirect()->route('departments.index')
                         ->with('success','Department deleted successfully');
     }
+
+    public function search(Request $request)
+    {
+        $term = $request->input('term');
+        
+        $departments = Department::where('department_name', 'LIKE', "%$term%")->get();
+    
+        return view('departments.search')->with('departments', $departments);
+    }
+    
 }

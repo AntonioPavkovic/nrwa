@@ -25,6 +25,8 @@ Route::resource('locations', LocationController::class);
 Route::resource('departments', DepartmentController::class);
 Route::resource('employees', EmployeeController::class);
 Route::resource('jobs', JobController::class);
+Route::get('departments/search', 'DepartmentController@search')->name('departments.search');
+
 
 Route::get('/', function () {
     return view('welcome');
