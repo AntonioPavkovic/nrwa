@@ -16,7 +16,7 @@ USE hr;
 ***************************CREATING TABLES************************
 **************************************************************** */
 CREATE TABLE regions (
-	region_id INT (11) UNSIGNED NOT NULL,
+	region_id INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	region_name VARCHAR(25),
 	PRIMARY KEY (region_id)
 	);
