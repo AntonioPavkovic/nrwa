@@ -30,7 +30,7 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
-        $employee = Employee::create($request);
+        $employee = Employee::create($request->all());
         return response()->json($employee, 201);
     }
 

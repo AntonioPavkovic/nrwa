@@ -30,7 +30,7 @@ class JobHistoryController extends Controller
 
     public function store(Request $request)
     {
-        $jobHistory = JobHistory::create($request);
+        $jobHistory = JobHistory::create($request->all());
         return response()->json($jobHistory, 201);
     }
 

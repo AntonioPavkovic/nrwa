@@ -30,7 +30,7 @@ class DepartmentController extends Controller
 
     public function store(Request $request)
     {
-        $department = Department::create($request);
+        $department = Department::create($request->all());
         return response()->json($department, 201);
     }
 

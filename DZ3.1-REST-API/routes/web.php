@@ -36,3 +36,8 @@ Route::get('/', function () {
 });
 
 Route::put('regions', [RegionController::class, 'update']);
+Route::put('countries', [CountryController::class, 'update']);
+Route::put('locations', [LocationController::class, 'update']);
+Route::put('departments', [DepartmentController::class, 'update']);
+Route::put('employees', [EmployeeController::class, 'update']);
+Route::put('jobs', [JobController::class, 'update']);

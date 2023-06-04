@@ -40,7 +40,7 @@ CREATE TABLE locations (
 	);
 
 CREATE TABLE departments (
-	department_id INT (11) UNSIGNED NOT NULL,
+	department_id INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	department_name VARCHAR(30) NOT NULL,
 	manager_id INT (11) UNSIGNED,
 	location_id INT (11) UNSIGNED,
@@ -56,7 +56,7 @@ CREATE TABLE jobs (
 	);
 
 CREATE TABLE employees (
-	employee_id INT (11) UNSIGNED NOT NULL,
+	employee_id INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	first_name VARCHAR(20),
 	last_name VARCHAR(25) NOT NULL,
 	email VARCHAR(25) NOT NULL,

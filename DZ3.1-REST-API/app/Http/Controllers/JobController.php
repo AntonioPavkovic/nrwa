@@ -30,7 +30,7 @@ class JobController extends Controller
 
     public function store(Request $request)
     {
-        $job = Job::create($request);
+        $job = Job::create($request->all());
         return response()->json($job, 201);
     }
 
