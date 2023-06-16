@@ -21,11 +21,22 @@ use App\Http\Controllers\JobController;
 Route::resource('regions', RegionController::class);
 Route::resource('countries', CountryController::class);
 Route::resource('locations', LocationController::class);
-Route::resource('departments', DepartmentController::class);
-Route::resource('employees', EmployeeController::class);
-Route::resource('jobs', JobController::class);
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('departments', DepartmentController::class);
+    Route::resource('employees', EmployeeController::class);
+});
+
+Route::group(['middleware' => 'auth', 'middleware' => 'is_admin'], function () {
+    Route::resource('jobs', JobController::class);
+});
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
